@@ -2,7 +2,6 @@ package jm.task.core.jdbc.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLDataException;
 import java.sql.SQLException;
 
 public class Util {
@@ -14,5 +13,9 @@ public class Util {
     public static Connection getConnection() throws SQLException
     {
         return DriverManager.getConnection(URL, USERNAME, PASSWORD);
+    }
+
+    public static void closeConnection() throws SQLException {
+        getConnection().close();
     }
 }
